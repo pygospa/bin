@@ -1,0 +1,11 @@
+#!/bin/bash
+lines=`grep '[;)}#]' *.c | wc -l`
+files=`ls *.c | wc -l`
+
+echo Files=$files Lines=$lines
+echo -n "Lines per file=" 
+
+bc <<EOF 
+scale=2 
+$lines/$files 
+EOF
